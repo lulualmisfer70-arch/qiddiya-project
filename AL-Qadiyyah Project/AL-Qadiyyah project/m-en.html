@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>Qiddiya of the Future</title>
+  <style>
+    body {
+      background-color: #f8fcff;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #c2cac5;
+      padding: 15px;
+      border-radius: 0 0 8px 8px;
+      position: relative;
+    }
+
+    header img {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      width: 120px;
+      border-radius: 8px;
+    }
+
+    header h1 {
+      text-align: center;
+      font-size: 40px;
+      margin: 0;
+      padding: 20px 0;
+      color: #333;
+    }
+
+    nav {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #004d40;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #00897b;
+    }
+
+    form {
+      position: absolute;
+      top: 15px;
+      left: 20px;
+    }
+
+    form input, form button {
+      padding: 6px 10px;
+      margin-right: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    form button {
+      background-color: #00897b;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: #00695c;
+    }
+
+    section {
+      background-color: #96a599;
+      margin: 20px;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    section h2 {
+      margin-top: 0;
+      color: #222;
+    }
+
+    section p, aside p {
+      color: #333;
+      font-size: 18px;
+    }
+
+    aside ul {
+      list-style: square;
+      padding-left: 20px;
+    }
+
+    img.main-img {
+      width: 70%;
+      height: auto;
+      display: block;
+      margin: 20px auto;
+      border-radius: 10px;
+    }
+
+    footer {
+      text-align: center;
+      color: gray;
+      padding: 15px;
+      margin-top: 30px;
+      background-color: #f1f1f1;
+      border-radius: 8px 8px 0 0;
+    }
+
+    #langToggle {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 9999;
+      background: #006c5f;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 12px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <!-- Language Toggle -->
+  <button id="langToggle">عربي</button>
+
+  <div style="text-align: center; margin: 20px;">
+    <img src="AOL_logo (1).png" alt="Academy Logo" style="width: 150px; margin: 0 15px;">
+    <img src="OIP.jpg" alt="Qiddiya Logo" style="width: 150px; margin: 0 15px;">
+  </div>
+
+  <header>
+    <form action="process.php" method="post">
+      <input type="text" name="username" placeholder="username">
+      <input type="password" name="password" placeholder="password">
+      <button type="submit" id="btn-login">Login</button>
+    </form>
+
+    <h1 id="title-main">Qiddiya of the Future</h1>
+    <nav>
+      <a id="nav-home" href="https://www.youtube.com/embed/ZkhyBiB5dLI">Home</a>|
+      <a id="nav-about" href="http://127.0.0.1:5500/mmen.html">About Us</a>|
+      <a id="nav-contact" href="http://127.0.0.1:5500/m2-en.html">Contact Us</a>|
+      <a id="nav-news" href="http://127.0.0.1:5500/m4-en.html">News</a>|
+      <a id="nav-gallery" href="http://127.0.0.1:5500/m5-en.html">Gallery</a>|
+      <a id="nav-dest" href="http://127.0.0.1:5500/m6-en.html">Destinations</a>|
+      <a id="nav-dir" href="http://127.0.0.1:5500/m7-en.html">Directions</a>
+    </nav>
+  </header>
+
+  <section style="background-color: #e8f5f3; padding: 40px; border-radius: 10px; text-align: center; margin: 40px auto; max-width: 600px;">
+    <h2 id="count-title" style="color: #006c5f; font-family: 'Arial', sans-serif;">Countdown to Qiddiya Official Opening</h2>
+    <h1 id="countdown" style="font-size: 32px; color: #222; margin-top: 20px;"></h1>
+
+    <!-- Booking Button -->
+    <a id="book-btn" href="http://127.0.0.1:5500/m3-en.html" style="display: inline-block; margin-top: 25px; padding: 12px 25px; background-color: #006c5f; color: white; text-decoration: none; border-radius: 8px; font-size: 18px;">
+      Book Your Ticket Now
+    </a>
+  </section>
+
+  <script>
+    const labels = {
+      en: { day:"days", hour:"hours", minute:"minutes", second:"seconds", open:"Now Open!" },
+      ar: { day:"يوم", hour:"ساعة", minute:"دقيقة", second:"ثانية", open:"تم الافتتاح!" }
+    };
+
+    var countDownDate = new Date("Jan 1, 2026 00:00:00").getTime();
+    var currentLang = "en"; 
+
+    function renderCountdown() {
+      var now = new Date().getTime();
+      var distance = countDownDate - now;
+
+      if (distance < 0) {
+        document.getElementById("countdown").textContent = labels[currentLang].open;
+        return;
+      }
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").textContent =
+        days + " " + labels[currentLang].day + " - " +
+        hours + " " + labels[currentLang].hour + " - " +
+        minutes + " " + labels[currentLang].minute + " - " +
+        seconds + " " + labels[currentLang].second;
+    }
+    setInterval(renderCountdown, 1000);
+  </script>
+
+  <img src="قديه.webp" alt="Qiddiya Image" class="main-img">
+
+  <section>
+    <article>
+      <h2 id="sect-title">A Major Saudi Entertainment, Cultural, and Sports Project</h2>
+      <p id="sect-desc">Qiddiya is located southwest of Riyadh and is one of the flagship projects of Saudi Vision 2030.</p>
+    </article>
+
+    <aside>
+      <p><strong id="goals-title">Project Goals:</strong></p>
+      <ul>
+        <li id="goal-1">Provide world-class entertainment destinations</li>
+        <li id="goal-2">Support the national economy</li>
+        <li id="goal-3">Create job opportunities for youth</li>
+        <li id="goal-4">Enhance quality of life in the Kingdom</li>
+      </ul>
+    </aside>
+  </section>
+
+  <style>
+    .faq-section {
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+    .faq { margin-bottom: 15px; border-bottom: 1px solid #567db3; }
+    .faq button {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      font-size: 18px;
+      padding: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      color: #135b7d;
+    }
+    .faq-content { display: none; padding: 0 10px 10px; color: #6c8db5; }
+  </style>
+
+  <div class="faq-section">
+    <h2 id="faq-title">Frequently Asked Questions</h2>
+
+    <div class="faq">
+      <button onclick="toggleFAQ(this)" id="faq-q1">What is the Qiddiya Project?</button>
+      <div class="faq-content" id="faq-a1">It is an entertainment and tourism project near Riyadh that aims to provide a global destination for entertainment, sports, and culture.</div>
+    </div>
+
+    <div class="faq">
+      <button onclick="toggleFAQ(this)" id="faq-q2">When is the opening date?</button>
+      <div class="faq-content" id="faq-a2">The first phase of the project is expected to open in 2026.</div>
+    </div>
+
+    <div class="faq">
+      <button onclick="toggleFAQ(this)" id="faq-q3">Can I book in advance?</button>
+      <div class="faq-content" id="faq-a3">Yes, the booking mechanism will be announced through the official website as the opening date approaches.</div>
+    </div>
+  </div>
+
+  <script>
+    function toggleFAQ(button) {
+      const content = button.nextElementSibling;
+      content.style.display = (content.style.display === 'block') ? 'none' : 'block';
+    }
+  </script>
+
+  <button id="chat-btn" onclick="alert('Hello! How can we help you?')" style="position: fixed; bottom: 20px; right: 20px; background-color: #007BFF; color: white; padding: 12px 16px; border: none; border-radius: 50px;">
+    💬 Quick Chat
+  </button>
+
+  <footer>
+    <p id="footer-text">&copy; All rights reserved to Al-Hilween Group</p>
+  </footer>
+
+</body>
+</html>

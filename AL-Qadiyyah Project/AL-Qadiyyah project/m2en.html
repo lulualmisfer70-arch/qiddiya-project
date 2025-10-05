@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f2f5f4;
+      font-family: 'Cairo', sans-serif;
+      color: #498fa8;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #498fa8;
+      color: white;
+      padding: 25px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    section {
+      background-color: rgb(155, 199, 202);
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(118, 71, 132, 0.1);
+    }
+
+    h1, h2 {
+      color: #5897c1;
+    }
+
+    a {
+      color: #547b93;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: #5892a5;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+      font-size: 14px;
+    }
+
+    .social-icons {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .social-icons img {
+      width: 35px;
+      margin: 0 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .social-icons img:hover {
+      transform: scale(1.2);
+    }
+
+    /* language button */
+    .lang-toggle {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      padding: 6px 12px;
+      background: #006c5f;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Language toggle -->
+  <button id="langToggle" class="lang-toggle">Arabic</button>
+
+  <header id="main-header">
+    Qiddiya Project
+  </header>
+
+  <section>
+    <footer style="text-align: center; margin-top: 40px; color: white;">
+      <h3 id="follow-title">Follow us on social media</h3>
+      <a href="https://twitter.com/qiddiya" target="_blank" style="margin: 0 10px; color: #1DA1F2;">Twitter</a>
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" width="40">
+
+      <a href="https://instagram.com/qiddiya" target="_blank" style="margin: 0 10px; color: #E1306C;">Instagram</a>
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" width="40">
+
+      <a href="https://tiktok.com/@qiddiya_sa" target="_blank" style="margin: 0 10px; color: #151313;">TikTok</a>
+      <img src="https://cdn-icons-png.flaticon.com/512/3046/3046120.png" alt="TikTok" width="40">
+
+      <a href="https://youtube.com/@qiddiya" target="_blank" style="margin: 0 10px; color: #e21a1d;">YouTube</a>
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" width="40">
+    </footer>
+  </section>
+
+  <footer id="footer-text">
+    &copy; All rights reserved to Al-Hilween Group
+  </footer>
+
+  <header>
+    <img src="OIP.jpg" alt="Qiddiya Logo" style="width: 200px; display: block; margin: 10px auto;">
+    <span id="header-title">Qiddiya Project</span>
+  </header>
+
+  <script>
+    const i18n = {
+      en: {
+        header: "Qiddiya Project",
+        follow: "Follow us on social media",
+        footer: "©️ All rights reserved to Al-Hilween Group",
+        toggle: "Arabic"
+      },
+      ar: {
+        header: "مشروع القدية",
+        follow: "تابعونا على مواقع التواصل الاجتماعي",
+        footer: "©️ جميع الحقوق محفوظة لقروب الحلوين",
+        toggle: "English"
+      }
+    };
+
+    let currentLang = "en";
+
+    function setLang(lang) {
+      const t = i18n[lang];
+      document.getElementById("main-header").textContent = t.header;
+      document.getElementById("follow-title").textContent = t.follow;
+      document.getElementById("footer-text").textContent = t.footer;
+      document.getElementById("header-title").textContent = t.header;
+      document.getElementById("langToggle").textContent = t.toggle;
+      document.documentElement.lang = (lang === "ar" ? "ar" : "en");
+      document.documentElement.dir = (lang === "ar" ? "rtl" : "ltr");
+      currentLang = lang;
+    }
+
+    document.getElementById("langToggle").addEventListener("click", () => {
+      setLang(currentLang === "en" ? "ar" : "en");
+    });
+
+    // Start in English
+    setLang("en");
+  </script>
+
+</body>
+</html>

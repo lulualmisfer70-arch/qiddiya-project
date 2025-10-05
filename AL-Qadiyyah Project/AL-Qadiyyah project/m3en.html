@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>Ticket Reservations</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f2f5f4;
+      font-family: 'Cairo', sans-serif;
+      color: #0a2e13;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #0a2e13;
+      color: white;
+      padding: 25px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    section {
+      background-color: white;
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h1, h2 {
+      color: #1e442f;
+    }
+
+    footer {
+      background-color: #0a2e13;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+      font-size: 14px;
+    }
+
+    .lang-toggle {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      padding: 6px 12px;
+      background: #006c5f;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      z-index: 999;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Language Button -->
+  <button id="langToggle" class="lang-toggle">Arabic</button>
+
+  <header>
+    <img src="OIP.jpg" alt="Qiddiya Logo" style="width: 200px; display: block; margin: 10px auto;">
+    <span id="header-title">Ticket Reservations</span>
+  </header>
+
+  <section style="background-color: #97b5be; padding: 30px; border-radius: 10px; margin-top: 40px;">
+    <h2 id="res-title" style="text-align: center;">Reservations</h2>
+    <form style="max-width: 400px; margin: auto;">
+      <label id="label-name" for="name">Full Name:</label><br>
+      <input type="text" id="name" name="name" required style="width: 100%; margin-bottom: 15px;"><br>
+
+      <label id="label-email" for="email">Email:</label><br>
+      <input type="email" id="email" name="email" required style="width: 100%; margin-bottom: 15px;"><br>
+
+      <label id="label-date" for="date">Visit Date:</label><br>
+      <input type="date" id="date" name="date" required style="width: 100%; margin-bottom: 15px;"><br>
+
+      <label id="label-tickets" for="tickets">Number of Tickets:</label><br>
+      <input type="number" id="tickets" name="tickets" min="1" required style="width: 100%; margin-bottom: 15px;"><br>
+
+      <button id="book-btn" type="submit" style="background-color: #729b96; color: white; padding: 10px 20px; border: none; border-radius: 5px;">Book Now</button>
+    </form>
+  </section>
+
+  <footer id="footer-text">
+    &copy; All rights reserved
+  </footer>
+
+</body>
+</html>

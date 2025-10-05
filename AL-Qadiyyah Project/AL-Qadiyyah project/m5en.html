@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>Qiddiya Construction Stages Gallery</title>
+  <style>
+    .media-gallery {
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .media-item {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      overflow: hidden;
+      background-color: #f9f9f9;
+    }
+
+    .media-item img,
+    .media-item video {
+      width: 100%;
+      display: block;
+    }
+
+    .media-title {
+      padding: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      background-color: #006c5f;
+      color: white;
+    }
+
+    .lang-toggle {
+      display:block;
+      margin:20px auto;
+      padding:8px 14px;
+      background:#006c5f;
+      color:#fff;
+      border:none;
+      border-radius:6px;
+      font-weight:bold;
+      cursor:pointer;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Toggle button -->
+<button id="langToggle" class="lang-toggle">عربي</button>
+
+<h2 id="gallery-title" style="text-align: center; color: #006c5f;">Qiddiya Construction Stages Gallery</h2>
+
+<div class="media-title" id="video-title">Video: Construction Progress</div>
+
+<div style="text-align: center; margin: 30px 0;">
+  <iframe width="300" height="530"
+    src="https://www.youtube.com/embed/H9OxyGhuEFc"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+</div>
+
+<div style="text-align: center; margin: 30px 0;">
+  <iframe width="360" height="640"
+    src="https://www.youtube.com/embed/ziMeaW2ILPw"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+</div>
+
+<div style="text-align: center; margin: 30px 0;">
+  <iframe width="360" height="640"
+    src="https://www.youtube.com/embed/tMxtwI5O9EA"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+</div>
+
+</body>
+</html>

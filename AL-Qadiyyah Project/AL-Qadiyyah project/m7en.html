@@ -1,0 +1,60 @@
+<!-- زر تبديل اللغة -->
+<button id="langToggle" style="display:block; margin:20px auto; padding:10px 16px; background:#006c5f; color:#fff; border:none; border-radius:6px; font-weight:bold; cursor:pointer;">
+  عربي
+</button>
+
+<section style="text-align: center; margin: 50px 0;">
+  <h2 id="title">How to Reach Qiddiya</h2>
+  <p id="desc">Click the map or use the button to go directly to Google Maps</p>
+
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3621.515451646731!2d46.49434231500089!3d24.690984184116434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f049e6c772275%3A0x4c13e76e2f220f9b!2sQiddiya!5e0!3m2!1sen!2ssa!4v1635154384030!5m2!1sen!2ssa" 
+    width="80%" 
+    height="400" 
+    style="border:0; border-radius: 10px;" 
+    allowfullscreen="" 
+    loading="lazy">
+  </iframe>
+
+  <br><br>
+
+  <a id="mapBtn" href="https://goo.gl/maps/ETxLwThqGBQfJPDq6" target="_blank" style="display: inline-block; background-color: #4CAF50; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none;">
+    Open in Google Maps
+  </a>
+</section>
+
+<script>
+  const i18n = {
+    ar: {
+      toggle: "English",
+      title: "طريقة الوصول إلى موقع القدية",
+      desc: "اضغط على الخريطة أو استخدم الزر للوصول للموقع مباشرة على خرائط Google",
+      btn: "فتح في خرائط Google"
+    },
+    en: {
+      toggle: "عربي",
+      title: "How to Reach Qiddiya",
+      desc: "Click the map or use the button to go directly to Google Maps",
+      btn: "Open in Google Maps"
+    }
+  };
+
+  // نبدأ بالإنجليزي
+  let currentLang = "en";
+
+  function setLang(lang) {
+    const t = i18n[lang];
+    document.getElementById("langToggle").textContent = t.toggle;
+    document.getElementById("title").textContent = t.title;
+    document.getElementById("desc").textContent = t.desc;
+    document.getElementById("mapBtn").textContent = t.btn;
+    currentLang = lang;
+  }
+
+  document.getElementById("langToggle").addEventListener("click", () => {
+    setLang(currentLang === "ar" ? "en" : "ar");
+  });
+
+  // بداية بالإنجليزي
+  setLang("en");
+</script>
